@@ -9,7 +9,7 @@ IMAGE_PIXELS = IMAGE_SIZE*IMAGE_SIZE
 OUTPUT_CLASSES = 10
 
 LEARNING_RATE = 1e-4
-STEPS = 10 ** 4
+STEPS = 5*(10 ** 4)
 
 
 class LogisticRegression(object):
@@ -53,7 +53,7 @@ class LogisticRegression(object):
         predictions = self._session.run(self._model, feed_dict={self.x_placeholder: data.images})
         e = np.argmax(data.labels, axis=1)
         p = np.argmax(predictions, axis=1)
-        return (np.equal(p, e).sum()*100.0)/len(p)
+        return (np.not_equal(p, e).sum()*100.0)/len(p)
 
     @staticmethod
     def weight_variable(shape):
@@ -71,5 +71,5 @@ if __name__ == "__main__":
     lr = LogisticRegression()
     lr.train(datasets.train, datasets.validation)
     test_accuracy = lr.check_score(datasets.test)
-    print("Score: %g%%" % lr.errors(datasets.test))
+    print("Test error: %g%%" % lr.errors(datasets.test))
     print('Done.')
