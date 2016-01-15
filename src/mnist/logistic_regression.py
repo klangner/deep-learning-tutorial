@@ -90,7 +90,7 @@ class Classifier(object):
         return tf.Variable(initial)
 
 
-# Logistic regression error = &.53%
+# Logistic regression error = 7.53%
 if __name__ == "__main__":
     datasets = read_data_sets(one_hot=True)
     clf = Classifier()
