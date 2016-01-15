@@ -13,7 +13,7 @@ OUTPUT_CLASSES = 10
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 flags.DEFINE_float('learning_rate', 1e-4, 'Initial learning rate.')
-flags.DEFINE_float('lambda1', 0, 'L1 Regularization coefficient.')
+flags.DEFINE_float('lambda1', 10, 'L1 Regularization coefficient.')
 flags.DEFINE_float('lambda2', 1e-3, 'L2 Regularization coefficient.')
 flags.DEFINE_float('min_score', 0.35, 'Don\'t stop before getting this score.')
 flags.DEFINE_integer('max_steps', 10 ** 5, 'Number of steps to run trainer.')
@@ -121,5 +121,5 @@ if __name__ == "__main__":
     clf = Classifier()
     clf.train(datasets.train, datasets.validation)
     test_accuracy = clf.check_score(datasets.test)
-    print("Test error: %g%%" % clf.errors(datasets.test))
+    print("Test score: %g, error: %g%%" % (test_accuracy, clf.errors(datasets.test)))
     print('Done.')
