@@ -43,8 +43,7 @@ class Classifier(object):
         # Output layer
         self._ow = self.weight_variable([FLAGS.hidden2, OUTPUT_CLASSES], 1.0 / np.sqrt(float(FLAGS.hidden2)))
         self._ob = self.bias_variable([OUTPUT_CLASSES])
-        output = tf.nn.relu(tf.matmul(hidden2, self._ow) + self._ob)
-        return tf.nn.softmax(output)
+        return tf.nn.softmax(tf.matmul(hidden2, self._ow) + self._ob)
 
     @staticmethod
     def loss(expected, predicted):
