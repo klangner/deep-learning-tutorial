@@ -6,3 +6,4 @@ data/
 *.zip
 *.pyc
 **/notMNIST*
+**/.ipynb_checkpoints
