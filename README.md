@@ -1,3 +1,3 @@
 # Deep Learning Tutorial
 
-test 3
+Interesting Deep Learning resources:
