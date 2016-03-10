@@ -3,4 +3,5 @@ data/
 *.iml
 *.gz
 *.pickle
+*.zip
 **/notMNIST*
